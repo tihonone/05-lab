@@ -1,0 +1,151 @@
+Script started on 2023-04-11 10:17:49+00:00 [TERM="xterm" TTY="/dev/pts/2" COLUMNS="214" LINES="53"]
+]0;user@otus-host-01: ~/otus-hw/05-labuser@otus-host-01:~/otus-hw/05-lab$ vagrant ssh
+Last login: Tue Apr 11 10:13:25 2023 from 10.0.2.2
+]0;vagrant@zfs:~[?1034h[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ 
+]0;vagrant@zfs:~[vagrant@zfs ~]$ sudo -i
+]0;root@zfs:~[?1034h[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# wget -O otus_task2.file --no-check-certificate 'https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download'
+--2023-04-11 10:18:39--  https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Resolving drive.google.com (drive.google.com)... 216.58.212.142, 2a00:1450:4001:801::200e
+Connecting to drive.google.com (drive.google.com)|216.58.212.142|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download [following]
+--2023-04-11 10:18:40--  https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Reusing existing connection to drive.google.com:443.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/1a8k8q3hrec7ucojf4601a004irm7oql/1681208250000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=547af3d6-158f-4eb7-af2c-7354cf159be4 [following]
+Warning: wildcards not supported in HTTP.
+--2023-04-11 10:18:43--  https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/1a8k8q3hrec7ucojf4601a004irm7oql/1681208250000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=547af3d6-158f-4eb7-af2c-7354cf159be4
+Resolving doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)... 142.250.184.225, 2a00:1450:4001:831::2001
+Connecting to doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)|142.250.184.225|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5432736 (5.2M) [application/octet-stream]
+Saving to: ‘otus_task2.file’
+
+ 0% [                                                                                                                                                                             ] 0           --.-K/s               9% [================>                                                                                                                                                            ] 537,947     2.56MB/s             59% [=====================================================================================================>                                                                       ] 3,231,520   7.44MB/s             75% [=================================================================================================================================>                                           ] 4,083,488   6.25MB/s             94% [==================================================================================================================================================================>          ] 5,132,064   5.81MB/s             100%[============================================================================================================================================================================>] 5,432,736   5.73MB/s   in 0.9s   
+
+2023-04-11 10:18:45 (5.73 MB/s) - ‘otus_task2.file’ saved [5432736/5432736]
+
+]0;root@zfs:~[root@zfs ~]# zfs recieve otus/test@today < otus_task2.file 
+unrecognized command 'recieve'
+usage: zfs command args ...
+where 'command' is one of the following:
+
+	version
+
+	create [-p] [-o property=value] ... <filesystem>
+	create [-ps] [-b blocksize] [-o property=value] ... -V <size> <volume>
+	destroy [-fnpRrv] <filesystem|volume>
+	destroy [-dnpRrv] <filesystem|volume>@<snap>[%<snap>][,...]
+	destroy <filesystem|volume>#<bookmark>
+
+	snapshot [-r] [-o property=value] ... <filesystem|volume>@<snap> ...
+	rollback [-rRf] <snapshot>
+	clone [-p] [-o property=value] ... <snapshot> <filesystem|volume>
+	promote <clone-filesystem>
+	rename [-f] <filesystem|volume|snapshot> <filesystem|volume|snapshot>
+	rename [-f] -p <filesystem|volume> <filesystem|volume>
+	rename -r <snapshot> <snapshot>
+	bookmark <snapshot> <bookmark>
+	program [-jn] [-t <instruction limit>] [-m <memory limit (b)>]
+	    <pool> <program file> [lua args...]
+
+	list [-Hp] [-r|-d max] [-o property[,...]] [-s property]...
+	    [-S property]... [-t type[,...]] [filesystem|volume|snapshot] ...
+
+	set <property=value> ... <filesystem|volume|snapshot> ...
+	get [-rHp] [-d max] [-o "all" | field[,...]]
+	    [-t type[,...]] [-s source[,...]]
+	    <"all" | property[,...]> [filesystem|volume|snapshot|bookmark] ...
+	inherit [-rS] <property> <filesystem|volume|snapshot> ...
+	upgrade [-v]
+	upgrade [-r] [-V version] <-a | filesystem ...>
+
+	userspace [-Hinp] [-o field[,...]] [-s field] ...
+	    [-S field] ... [-t type[,...]] <filesystem|snapshot>
+	groupspace [-Hinp] [-o field[,...]] [-s field] ...
+	    [-S field] ... [-t type[,...]] <filesystem|snapshot>
+	projectspace [-Hp] [-o field[,...]] [-s field] ... 
+	    [-S field] ... <filesystem|snapshot>
+
+	project [-d|-r] <directory|file ...>
+	project -c [-0] [-d|-r] [-p id] <directory|file ...>
+	project -C [-k] [-r] <directory ...>
+	project [-p id] [-r] [-s] <directory ...>
+
+	mount
+	mount [-lvO] [-o opts] <-a | filesystem>
+	unmount [-f] <-a | filesystem|mountpoint>
+	share [-l] <-a [nfs|smb] | filesystem>
+	unshare <-a [nfs|smb] | filesystem|mountpoint>
+
+	send [-DnPpRvLecwhb] [-[i|I] snapshot] <snapshot>
+	send [-nvPLecw] [-i snapshot|bookmark] <filesystem|volume|snapshot>
+	send [-nvPe] -t <receive_resume_token>
+	receive [-vnsFhu] [-o <property>=<value>] ... [-x <property>] ...
+	    <filesystem|volume|snapshot>
+	receive [-vnsFhu] [-o <property>=<value>] ... [-x <property>] ... 
+	    [-d | -e] <filesystem>
+	receive -A <filesystem|volume>
+
+	allow <filesystem|volume>
+	allow [-ldug] <"everyone"|user|group>[,...] <perm|@setname>[,...]
+	    <filesystem|volume>
+	allow [-ld] -e <perm|@setname>[,...] <filesystem|volume>
+	allow -c <perm|@setname>[,...] <filesystem|volume>
+	allow -s @setname <perm|@setname>[,...] <filesystem|volume>
+
+	unallow [-rldug] <"everyone"|user|group>[,...]
+	    [<perm|@setname>[,...]] <filesystem|volume>
+	unallow [-rld] -e [<perm|@setname>[,...]] <filesystem|volume>
+	unallow [-r] -c [<perm|@setname>[,...]] <filesystem|volume>
+	unallow [-r] -s @setname [<perm|@setname>[,...]] <filesystem|volume>
+
+	hold [-r] <tag> <snapshot> ...
+	holds [-rH] <snapshot> ...
+	release [-r] <tag> <snapshot> ...
+	diff [-FHt] <snapshot> [snapshot|filesystem]
+
+	load-key [-rn] [-L <keylocation>] <-a | filesystem|volume>
+	unload-key [-r] <-a | filesystem|volume>
+	change-key [-l] [-o keyformat=<value>]
+	    [-o keylocation=<value>] [-o pbkfd2iters=<value>]
+	    <filesystem|volume>
+	change-key -i [-l] <filesystem|volume>
+
+Each dataset is of the form: pool/[dataset/]*dataset[@name]
+
+For the property list, run: zfs set|get
+
+For the delegated permission list, run: zfs allow|unallow
+]0;root@zfs:~[root@zfs ~]# zfs recieve otus/test@today < otus_task2.file [1P[C[1@e[1P[1@i
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# 
+]0;root@zfs:~[root@zfs ~]# find /otus/test/[K -name "secret_message"
+/otus/test/task1/file_mess/secret_message
+]0;root@zfs:~[root@zfs ~]# cat /otus/test/task1/file_mess/secret_message 
+https://github.com/sindresorhus/awesome
+]0;root@zfs:~[root@zfs ~]# c^C
+]0;root@zfs:~[root@zfs ~]# exit
+logout
+]0;vagrant@zfs:~[vagrant@zfs ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+]0;user@otus-host-01: ~/otus-hw/05-labuser@otus-host-01:~/otus-hw/05-lab$ exit
+exit
+
+Script done on 2023-04-11 10:22:22+00:00 [COMMAND_EXIT_CODE="130"]
